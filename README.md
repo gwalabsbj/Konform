@@ -39,7 +39,7 @@ Le site est statique : il suffit d'ouvrir `src/index.html` dans un navigateur.
 ### En local
 
 ```bash
-git clone https://github.com/gwalabsbj/konform.git
+git clone https://github.com/[ton-utilisateur]/konform.git
 cd konform/src
 # Ouvrez index.html dans votre navigateur, ou lancez un petit serveur :
 python3 -m http.server 8000

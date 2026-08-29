@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Générateur de politique de confidentialité gratuit — Côte d'Ivoire & Bénin | Konform</title>
+<link rel="stylesheet" href="konform.css">
+</head>
+<body>
+
+<div class="disclaimer-bar"><strong>À lire avant de publier :</strong> Konform génère des documents à titre indicatif. Faites-les toujours valider par un avocat spécialisé en droit numérique avant toute publication.</div>
+
+<nav>
+  <a class="logo" href="index.html">Konform</a>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="mentions-legales.html">Mentions légales</a>
+    <a href="politique-confidentialite.html" class="current">Politique de confidentialité</a>
+  </div>
+  <a class="nav-cta" href="mentions-legales.html">Passer aux mentions légales →</a>
+</nav>
+
+<div class="tool-heading">
+  <h2>Générateur de politique de confidentialité</h2>
+  <p>Conforme à la loi n°2013-450 (Côte d'Ivoire) ou au Code du numérique (Bénin). Le document se construit à droite en temps réel.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="countries">
+    <button class="country-btn active" id="btn-ci" onclick="setCountry('ci')">
+      <div class="seal" style="color:var(--ci)">CI</div>
+      <div><strong>Côte d'Ivoire</strong><small>Loi n°2013-450 — ARTCI</small></div>
+    </button>
+    <button class="country-btn" id="btn-bj" onclick="setCountry('bj')">
+      <div class="seal" style="color:var(--bj)">BJ</div>
+      <div><strong>Bénin</strong><small>Code du numérique 2017-20 — APDP</small></div>
+    </button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Vos informations</h2>
+
+      <label>Nom du site / de l'entreprise</label>
+      <input type="text" id="siteName" value="Ateliers Koura" oninput="handleChange()">
+
+      <label>Email de contact</label>
+      <input type="text" id="email" value="contact@ateliers-koura.ci" oninput="handleChange()">
+
+      <label>Téléphone</label>
+      <input type="text" id="phone" value="+225 07 00 00 00 00" oninput="handleChange()">
+
+      <label>Nom de l'hébergeur</label>
+      <input type="text" id="hostName" placeholder="ex. Hostinger, OVH, IONOS..." oninput="handleChange()">
+
+      <h3>Protection des données</h3>
+      <label id="lblDeclaration">Numéro de déclaration ARTCI (si déjà obtenu)</label>
+      <input type="text" id="declaration" placeholder="Laisser vide si non déclaré" oninput="handleChange()">
+      <label>Responsable du traitement (si différent de l'éditeur)</label>
+      <input type="text" id="dpo" placeholder="Nom / fonction" oninput="handleChange()">
+      <label>Durée de conservation des données</label>
+      <select id="retention" onchange="handleChange()">
+        <option>12 mois</option>
+        <option selected>24 mois</option>
+        <option>36 mois</option>
+        <option>Durée de la relation contractuelle + 5 ans</option>
+      </select>
+
+      <h3>Le site collecte...</h3>
+      <label class="check"><input type="checkbox" id="cContact" checked onchange="handleChange()"> Un formulaire de contact</label>
+      <label class="check"><input type="checkbox" id="cCookies" checked onchange="handleChange()"> Des cookies / outils de mesure d'audience</label>
+      <label class="check"><input type="checkbox" id="cAccounts" onchange="handleChange()"> Des comptes utilisateurs</label>
+      <label class="check"><input type="checkbox" id="cPayment" onchange="togglePay()"> Un paiement en ligne</label>
+      <label class="check"><input type="checkbox" id="cNewsletter" onchange="handleChange()"> Une newsletter</label>
+      <label class="check"><input type="checkbox" id="cThirdParty" checked onchange="handleChange()"> Des outils tiers (Google Analytics, Meta Pixel, WhatsApp Business...)</label>
+
+      <div id="payBlock" style="display:none;margin-top:12px;padding:14px;background:#f7f5ee;border-radius:10px;border:1px solid var(--border);">
+        <h3 style="margin-top:0;">Agrégateurs de paiement utilisés</h3>
+        <label class="check"><input type="checkbox" id="payCinetpay" onchange="handleChange()"> CinetPay</label>
+        <label class="check"><input type="checkbox" id="payFedapay" onchange="handleChange()"> FedaPay</label>
+        <label class="check"><input type="checkbox" id="payKkiapay" onchange="handleChange()"> Kkiapay</label>
+        <label class="check"><input type="checkbox" id="payPaydunya" onchange="handleChange()"> PayDunya</label>
+        <label class="check"><input type="checkbox" id="payStripe" onchange="handleChange()"> Stripe</label>
+        <label class="check"><input type="checkbox" id="payPaypal" onchange="handleChange()"> PayPal</label>
+        <label class="check"><input type="checkbox" id="payWave" onchange="handleChange()"> Wave</label>
+        <label class="check"><input type="checkbox" id="payMomo" onchange="handleChange()"> Mobile Money (Orange, MTN, Moov)</label>
+        <label style="margin-top:8px;">Autre(s) — séparez par des virgules</label>
+        <input type="text" id="payOther" placeholder="ex. Paystack, Flutterwave..." oninput="handleChange()">
+      </div>
+
+      <p style="font-size:12px;color:var(--muted);margin-top:16px;">Ces champs sont partagés avec le générateur de mentions légales — pas besoin de les ressaisir en changeant de page.</p>
+
+      <!-- Hidden fields shared with the mentions légales generator -->
+      <input type="hidden" id="legalForm" value="Entreprise individuelle">
+      <input type="hidden" id="registre">
+      <input type="hidden" id="address" value="Abidjan, Côte d'Ivoire">
+      <input type="hidden" id="hostAddress">
+    </div>
+
+    <div class="doc-panel">
+      <div class="doc-panel-header">Politique de confidentialité</div>
+      <div style="position:relative;">
+        <div class="doc-body" id="docBody"></div>
+        <div class="stamp">✓</div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="copyDoc()">Copier le texte</button>
+        <button class="btn" onclick="downloadHTML('Politique de confidentialité','politique-confidentialite')">Télécharger en .html</button>
+        <button class="btn" onclick="downloadWord('Politique de confidentialité','politique-confidentialite')">Télécharger en .doc (Word)</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="cross-link">Besoin aussi de mentions légales ? <a href="mentions-legales.html">Générez-les ici →</a></p>
+
+  <div class="whatsapp" id="whatsapp-block">
+    <div>
+      <strong>Votre pays n'est pas encore disponible ?</strong>
+      <p>Dites-nous quel pays ajouter et on s'en occupe. C'est aussi le canal pour toute question, suggestion, ou pour offrir un café à l'équipe 🙂</p>
+    </div>
+    <a class="wa-btn" href="https://wa.me/2290157072185?text=Bonjour%2C%20je%20contacte%20Konform%20pour%20%3A" target="_blank" rel="noopener">Écrire sur WhatsApp ↗</a>
+  </div>
+
+</div>
+
+<div class="disclaimer-bar"><strong>Rappel :</strong> ces documents sont générés automatiquement et facilitent la rédaction — ils ne remplacent pas l'avis d'un avocat spécialisé en droit numérique.</div>
+
+<footer>
+  <p style="margin:0 0 4px;">Konform est un projet communautaire, gratuit et sans publicité, fait pour la communauté tech ivoirienne et béninoise.</p>
+  <p style="margin:0;">☕ écrivez-nous sur WhatsApp — questions, suggestions, ou pour ajouter votre pays.</p>
+</footer>
+
+<script src="konform.js"></script>
+<script>
+let country = 'ci';
+
+function setCountry(c){
+  country = c;
+  document.getElementById('btn-ci').classList.toggle('active', c==='ci');
+  document.getElementById('btn-bj').classList.toggle('active', c==='bj');
+  document.getElementById('lblDeclaration').textContent = c==='ci' ? "Numéro de déclaration ARTCI (si déjà obtenu)" : "Numéro de déclaration APDP (si déjà obtenu)";
+  if(!restoreFormState()){
+    if(c==='ci'){
+      document.getElementById('email').value = "contact@ateliers-koura.ci";
+      document.getElementById('phone').value = "+225 07 00 00 00 00";
+    } else {
+      document.getElementById('email').value = "contact@ateliers-koura.bj";
+      document.getElementById('phone').value = "+229 01 00 00 00 00";
+    }
+  }
+  handleChange();
+}
+
+function handleChange(){
+  saveFormState(country);
+  document.getElementById('docBody').innerHTML = genPolitique(country);
+}
+
+function togglePay(){
+  document.getElementById('payBlock').style.display = document.getElementById('cPayment').checked ? 'block' : 'none';
+  handleChange();
+}
+
+(function init(){
+  const saved = restoreFormState();
+  if(saved){
+    applyFormState(saved);
+    if(saved.country) country = saved.country;
+    document.getElementById('btn-ci').classList.toggle('active', country==='ci');
+    document.getElementById('btn-bj').classList.toggle('active', country==='bj');
+    document.getElementById('lblDeclaration').textContent = country==='ci' ? "Numéro de déclaration ARTCI (si déjà obtenu)" : "Numéro de déclaration APDP (si déjà obtenu)";
+  }
+  document.getElementById('payBlock').style.display = document.getElementById('cPayment').checked ? 'block' : 'none';
+  handleChange();
+})();
+</script>
+</body>
+</html>
