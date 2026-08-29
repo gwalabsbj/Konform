@@ -39,21 +39,23 @@ Le site est statique : il suffit d'ouvrir `src/index.html` dans un navigateur.
 ### En local
 
 ```bash
-git clone https://github.com/gwalabsbj/konform.git
-cd konform/src
+git clone https://github.com/gwalabsbj/Konform.git
+cd Konform/src
 # Ouvrez index.html dans votre navigateur, ou lancez un petit serveur :
 python3 -m http.server 8000
 # puis rendez-vous sur http://localhost:8000
 ```
 
+### Déploiement
+
+Le projet est entièrement statique : il suffit de copier le contenu du dossier `src/` (les 5 fichiers) à la racine web de votre serveur. Aucune installation, aucune base de données, aucune étape de build. Tout hébergement servant des fichiers statiques convient.
+
+---
 
 ## 📁 Structure du projet
 
 ```
-konform/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml                  # Déploiement automatique sur GitHub Pages
+Konform/
 ├── src/
 │   ├── index.html                      # Page d'accueil
 │   ├── mentions-legales.html           # Générateur de mentions légales
