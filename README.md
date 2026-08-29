@@ -39,20 +39,13 @@ Le site est statique : il suffit d'ouvrir `src/index.html` dans un navigateur.
 ### En local
 
 ```bash
-git clone https://github.com/[ton-utilisateur]/konform.git
+git clone https://github.com/gwalabsbj/konform.git
 cd konform/src
 # Ouvrez index.html dans votre navigateur, ou lancez un petit serveur :
 python3 -m http.server 8000
 # puis rendez-vous sur http://localhost:8000
 ```
 
-### Déploiement
-
-N'importe quel hébergement statique convient (GitHub Pages, Netlify, Vercel, Cloudflare Pages). Il suffit de servir le contenu du dossier `src/`.
-
-Ce dépôt inclut un workflow GitHub Actions (`.github/workflows/deploy.yml`) qui déploie automatiquement le dossier `src/` sur **GitHub Pages** à chaque push sur `main`. Pour l'activer : dans **Settings → Pages**, choisissez la source **GitHub Actions**.
-
----
 
 ## 📁 Structure du projet
 
